@@ -150,7 +150,7 @@ else:
 			include_dirs = flags.include_dirs,
 			library_dirs = flags.library_dirs,
 			extra_link_args = extra_link + arch(),
-			extra_compile_args = extra_compile + arch() + target_specific(),
+			extra_compile_args = extra_compile + arch() + target_specific() + ['-std=c++11'],
 			libraries = ['torrent-rasterbar'] + flags.libraries)]
 
 setup(name = 'python-libtorrent',
