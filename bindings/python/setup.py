@@ -104,7 +104,7 @@ else:
 		library_dirs = parse_cmd(extra_cmd, '-L'),
 		extra_link_args = ldflags.split() + arch(),
 		extra_compile_args = parse_cmd(extra_cmd, '-D', True) + arch() \
-			+ target_specific(),
+			+ target_specific() + ['-std=c++11'],
 		libraries = ['torrent-rasterbar'] + parse_cmd(extra_cmd, '-l'))]
 
 setup(name = 'python-libtorrent',
