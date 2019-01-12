@@ -148,7 +148,7 @@ namespace libtorrent
 		SET_NOPREV(proxy_username, "", &session_impl::update_proxy),
 		SET_NOPREV(proxy_password, "", &session_impl::update_proxy),
 		SET_NOPREV(i2p_hostname, "", &session_impl::update_i2p_bridge),
-		SET_NOPREV(peer_fingerprint, "-LT11B0-", 0),
+		SET_NOPREV(peer_fingerprint, "-LT11C0-", 0),
 		SET_NOPREV(dht_bootstrap_nodes, "dht.libtorrent.org:25401", &session_impl::update_dht_bootstrap_nodes)
 	};
 
@@ -366,6 +366,7 @@ namespace libtorrent
 		SET_NOPREV(urlseed_max_request_bytes, 16 * 1024 * 1024, 0),
 		SET_NOPREV(web_seed_name_lookup_retry, 1800, 0),
 		SET_NOPREV(close_file_interval, CLOSE_FILE_INTERVAL, &session_impl::update_close_file_interval),
+		SET_NOPREV(utp_cwnd_reduce_timer, 100, 0),
 	};
 
 #undef SET

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10.0 FATAL_ERROR)
 
 project(libtorrent
 	DESCRIPTION "Bittorrent library"
-	VERSION 1.1.11
+	VERSION 1.1.12
 )
 
 set (SOVERSION "9")
@@ -361,7 +361,11 @@ foreach (s ${COMPILETIME_OPTIONS_LIST})
 	set (COMPILETIME_OPTIONS "${COMPILETIME_OPTIONS} -D${s}")
 endforeach (s)
 
-generate_and_install_pkg_config_file(torrent-rasterbar libtorrent-rasterbar)
+# There is little to none support for using pkg-config with MSVC and most users won't bother with it.
+# However, msys is a linux-like platform on Windows that do support/prefer using pkg-config.
+if (NOT MSVC)
+	generate_and_install_pkg_config_file(torrent-rasterbar libtorrent-rasterbar)
+endif()
 
 install(TARGETS torrent-rasterbar EXPORT LibtorrentRasterbarTargets
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
